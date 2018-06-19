@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.gomap-1.3.3.min.js"></script>
+	
+	<style>
+	#mapa12345 h2 {
+		color: black;
+	}
+	#mapa12345 p {
+		color: black;	
+	}
+	#mapa12345 {
+		height:550px;
+		width:550px;
+	}
+	</style>
+
+
+	<script>
+		$(document).ready(function() {
+			$("#mapa12345").goMap({
+				latitude:-16.3586470,
+				longitude:-71.5433610,
+				zoom:18,
+				//maptype:"TERRAIN",
+				scaleControl:true
+			});
+			$.goMap.createMarker({
+				latitude:-16.3586470,
+				longitude:-71.5433610
+			});
+		});
+	</script>
+
+	<title>Google Maps</title>
+</head>
+<body>
+	<div class="">
+		<div class="">
+			<h1>Google Maps</h1>
+            
+            <div id="mapa12345"></div>
+
+		</div>
+	</div>
+
+</body>
+</html>
