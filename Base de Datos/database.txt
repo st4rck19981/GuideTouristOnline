@@ -1,0 +1,57 @@
+CREATE DATABASE guidetourist;
+\c guidetourist
+
+CREATE TABLE lugar(
+idLugar SERIAL PRIMARY KEY ,
+nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE valoracionlugar(
+Lugar_idLugar INT NOT NULL,
+punto INT NOT NULL,
+CONSTRAINT fk_ValoracionLugar_Lugar
+FOREIGN KEY (Lugar_idLugar)
+REFERENCES lugar (idLugar)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+);
+
+CREATE TABLE Comentarios(
+Lugar_idLugar INT NOT NULL,
+idComentario SERIAL PRIMARY KEY,
+Comentario TEXT NOT NULL,
+Fecha TIMESTAMP NOT NULL,
+CONSTRAINT fk_Comentarios_Lugar1
+FOREIGN KEY (Lugar_idLugar)
+REFERENCES lugar (idLugar)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+);
+
+CREATE TABLE categoria(
+idCategoria SERIAL PRIMARY KEY,
+nombreCategoria VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE lugar_has_categoria(
+Lugar_idLugar INT NOT NULL,
+Categoria_idCategoria INT NOT NULL,
+contenidoCategoria TEXT NULL,
+referenciasCategoria TEXT NULL,
+PRIMARY KEY (Lugar_idLugar,Categoria_idCategoria),
+CONSTRAINT fk_lugar_has_categoria_lugar1
+FOREIGN KEY (Lugar_idLugar)
+REFERENCES lugar (idLugar)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION,
+CONSTRAINT fk_lugar_has_categoria_categoria1
+FOREIGN KEY (Categoria_idCategoria)
+REFERENCES categoria(idCategoria)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+);
+
+CREATE INDEX fk_ValoracionLugar_Lugar_idx ON valoracionlugar(Lugar_idLugar ASC);
+CREATE INDEX fk_Comentarios_Lugar1_idx ON comentarios (Lugar_idLugar ASC);
+CREATE INDEX fk_Lugar_has_Categoria_Categoria1_idx ON lugar_has_categoria (Categoria_idCategoria ASC);
+CREATE INDEX fk_Lugar_has_Ctegoria_Lugar1_idx ON lugar_has_categoria(Lugar_idLugar ASC);
