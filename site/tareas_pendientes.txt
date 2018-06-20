@@ -1,0 +1,10 @@
+fusionar las estrellas con la base de datos, javo
+fusionar comentarios con bd, javo
+hacer que botón api muestre los resultados de las categorías, kevin
+  (label es una categoría, latitud y longitud es otra categoría, descripción es otra categoría, etc)
+  de wiki, si no hay de la bd
+mostrar las imágenes referenciales, el api da los links, franco
+ver si las descripciones se pueden tomar de otros sitios, un párrafo, franco
+manual de usuario, de operaciones, doc de pruebas, josé
+  el de operaciones indica la configuración que el usuario debe hacer para correr localmente la página? si es asi kevin explicara un poco las instalaciones y configuraciones necesarias
+mejoramiento de la bd y archivos para conectar, algunos queries que se usarán con el api, jefferson
