@@ -1,0 +1,15 @@
+- sera un php incrustado que maneje el api
+	¿devolverá un json que se maneje desde afuera?
+
+1) instalar php
+2) instalar composer (un manejador de dependencias para php)}
+3) instalar cloud-vision para php
+4) autenticarme sacando un json de service account key para este proyecto en php
+5) colocar el json en la variable GOOGLE_APPLICATION_CREDENTIALS, esto en el poweShell
+	$env:GOOGLE_APPLICATION_CREDENTIALS="D:\documentos\san_agustin\cursos\ingenieria_de_software\api\php\api-php.json"
+6) correr el php
+---
+Todo instalado:
+
+1) tener las funciones en archivos php
+2) tener un html que llame o use esas funciones en .phps
