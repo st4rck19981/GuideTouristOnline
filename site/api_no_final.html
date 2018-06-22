@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
+    <title>Half Slider - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/open-iconic/font/css/open-iconic.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    
+    
+    <!--Google Maps -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.gomap-1.3.3.min.js"></script>
+
+    <!-- Custom styles for this template 
+    <link href="css/half-slider.css" rel="stylesheet">
+    -->
+    <script type="text/javascript">
+    if (window.FileReader) {
+		var reader = new FileReader(), rFilter = /^(image\/bmp|image\/cis-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x-cmu-raster|image\/x-cmx|image\/x-icon|image\/x-portable-anymap|image\/x-portable-bitmap|image\/x-portable-graymap|image\/x-portable-pixmap|image\/x-rgb|image\/x-xbitmap|image\/x-xpixmap|image\/x-xwindowdump)$/i;  
+        function doTest() { // de <input type="file" id="myfile" name="myfilepe" size="40" onchange="doTest()">
+			if (document.getElementById("myfile").files.length === 0) { return; }
+			var file = document.getElementById("myfile").files[0];  
+			if (!rFilter.test(file.type)) { alert("You must select a valid image file!"); return; }  
+			reader.readAsDataURL(file); //reader contiene la imagen codificada, base64_encode(file_get_contents($path))
+		}
+		reader.onload = function (f) { //apenas se carga la imagen
+			preview = document.getElementById("imagen")//de <img id="imagen" src="ya hay algo" width="440px" name="imagen" style="display:block" />	
+			preview.src = f.target.result;
+			preview.style.display = "block";
+            input_hidden_codi = document.getElementById("codi");// de <input type="hidden" id="codi"  name="codificado"  />
+			input_hidden_codi.value = f.target.result; // a la caja de texto oculta le da el valor de src
+        }; 
+        // al subirse el archivo ya tengo el string base64 en el id codi
+    }else
+		alert("FileReader object not found :( \nTry using Chrome, Firefox or WebKit");    
+    </script>
+	
+	<script language="javascript">	
+		$(document).ready(function(){ // cuando las imagenes estan cargadas.. se trabaja el button y el input para el método post
+            $("#ejecutar_api").click(function(){  // de <button type="button"  id="ejecutar_api" class="btn btn-outline-info btn-block">                       
+                codigo = $("#codi").val(); // de <input type="hidden" id="codi"  name="codificado"  />.....los id para javascript, los name para php
+                $.post("api_work.php", { codigo: codigo }, function (data) { // data es el resultado de api_work.php
+                    $(".resultado").html(data); // de <div class="jumbotron resultado"  style="overflow-y:scroll; height:400px;">, alli coloca data como su html
+                });
+            });
+        });
+	</script>
+		
+    <style>
+		#mapa12345 h2 {
+		  color: black;
+		}
+		#mapa12345 p {
+		  color: black; 
+		}
+
+		#mapa12345 {
+		  height:480px;
+		  width:550px;
+		}
+    </style>
+
+    <script>
+      $(document).ready(function() {
+        $("#mapa12345").goMap({
+          latitude:-16.3586470,
+          longitude:-71.5433610,
+          zoom:18,
+          //maptype:"TERRAIN",
+          scaleControl:true
+        });
+        $.goMap.createMarker({
+          latitude:-16.3586470,
+          longitude:-71.5433610
+        });
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Guide Tourist Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="api.html">API</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Proyecto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Team</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+
+      <br><br><br>
+    </div>
+
+    <!-- ICONO-->
+    <div class="container ">
+      <div class="row">
+        <style>
+          i.ex1:hover {color:Gold;}
+          i.ex2:hover, i.ex1:active, i.ex2:active {color:Gold;}
+          i.ex3:hover {color:Gold;}
+          i.ex4:hover {color:Gold;}
+          i.ex5:hover {color:Gold;}
+        </style>
+        <div class="col " style="color:Silver"> 
+          <i class="ex1 fas fa-star fa-1x float-right"></i>
+          <i class="ex2 fas fa-star fa-1x float-right"></i>
+          <i class="ex3 fas fa-star fa-1x float-right"></i>
+          <i class="ex4 fas fa-star fa-1x float-right"></i>
+          <i class="ex5 fas fa-star fa-1x float-right"></i>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div class="container-item">      
+      <div class="container">
+          <div class="row justify-content-center">
+              <!--<form action="api_work.php" method="post" >, el action parece omitible, mejor aún el form sería omitible pues se maneja arriba los post con los id de button e input -->
+                  <div class="col-5">
+                      <button type="button" id="ejecutar_api" class="btn btn-outline-info btn-block">EJECUTAR API</button><br>
+                      <input type="hidden" id="codi" name="codificado" />
+                      <p><input type="file" id="myfile" name="myfilepe" size="40" onchange="doTest()"></p>
+                      <img id="imagen" src="" width="440px" name="imagen" style="display:none" />
+                  </div>
+              <!--</form><br><br>-->
+              <div class="col-7">
+                  <div class="jumbotron resultado" style="overflow-y:scroll; height:400px;">
+                      <h2 class="display-6 text-center"><span class="bug-4x"></span>Coliseo Romano</h2>
+                      <p class="lead text-justify">El fabuloso Coliseo Romano lleva por nombre original “Anfiteatro Flavio” y fue construido por el Emperador Vespasiano alrededor del 70 d.C. y bajo la dinastía Flavia. Esta dinastía era  familia del emperador, de donde viene su nombre original. Fue inaugurado aproximadamente 10 años después por el Emperador Tito en los 80 d.C. Actualmente es uno de los monumentos más visitados del mundo. En Roma, es el más visitado junto a la Capilla Sixtina.</p>
+                      <hr class="my-4">
+                      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- COMENTARIOS -->
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-7">COMENTARIOS</h1>
+              <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+              <hr class="my-4">
+              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+              
+              <div class="container border">
+                <form>
+                  
+                    <div class="form-group">
+                      <label >Agregar Comentario</label>
+                      <textarea class="form-control" placeholder="Escribir Texto"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                  
+                </form>
+              </div>
+
+            </div>
+            
+        </div>
+        <div class="col-6">
+          <div>
+            <h1>Google Maps</h1>  
+            <div id="mapa12345"></div>
+          </div>          
+        </div>
+      </div>
+    </div>
+
+  
+    
+
+    <br><br><br><br>
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    
+
+    <!-- Bootstrap core JavaScript 
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    -->
+  </body>
+
+</html>
