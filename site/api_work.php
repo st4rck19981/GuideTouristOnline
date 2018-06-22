@@ -1,10 +1,4 @@
-<?php
-				# includes the autoloader for libraries installed with composer
-				require 'C:\Users\vlue\vendor\autoload.php';
-				# imports the Google Cloud client library
-				use Google\Cloud\Vision\V1\ImageAnnotatorClient;			
-
-				 
+<?php						
 				$imagen_content_fullAndEncoded = $_POST['imagen_src_full_and_encoded'];//es el string de src de <img>, al hacer upload ya no es "", sino "data:image/jpeg;base64,/sda....sdf/Z"
 					//lo que está luego de "base64," es base64_encode(file_get_contents($path)), 
 						//el api nescesita solo file_get_contents($path)
@@ -32,6 +26,11 @@
 
 					//decodificar el encoded					
 					$image_contents = base64_decode($imagen_content_encoded);//es el decode del encode					
+
+					# includes the autoloader for libraries installed with composer
+					require 'C:\Users\vlue\vendor\autoload.php';
+					# imports the Google Cloud client library
+					use Google\Cloud\Vision\V1\ImageAnnotatorClient;	
 
 					# prepare the image to be annotated					
 					$image = $image_contents;//original fue: $image = file_get_contents('cualquierimagen.jpg');
