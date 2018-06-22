@@ -242,9 +242,6 @@
               <?php mostrarComentarios($indice);
 
               ?>
-
-              <hr class="my-4">
-              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
               <div class="container border">
                 <form name="micomend" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div class="form-group">
