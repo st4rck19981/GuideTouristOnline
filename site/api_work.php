@@ -1,79 +1,57 @@
 <?php
-				
-				
-				$codigo = $_POST['codigo'];
-				//echo $codigo;
-				 
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				# includes the autoloader for libraries installed with composer
 				require 'C:\Users\vlue\vendor\autoload.php';
 				# imports the Google Cloud client library
 				use Google\Cloud\Vision\V1\ImageAnnotatorClient;			
-				//echo "Si"."<br>"."<br>"."<br>"."<br>"."<br>";
-				//$tmp = "<script> document.write(imagen_src); </script>";// imprime image_src, pero como estructuras es todo lo del ""
-				if(!empty($codigo)){
-					//echo "NO"."<br>"."<br>"."<br>"."<br>"."<br>";
-					//obtenemos el string de src de <img>, al hacer upload ya no es ""
-					//$lo_de_src = str_split($codigo);
 
-					//preg_match( '@src="([^"]+)"@' , $tag_imagen, $lo_de_src);
+				 
+				$imagen_content_fullAndEncoded = $_POST['imagen_src_full_and_encoded'];//es el string de src de <img>, al hacer upload ya no es "", sino "data:image/jpeg;base64,/sda....sdf/Z"
+					//lo que está luego de "base64," es base64_encode(file_get_contents($path)), 
+						//el api nescesita solo file_get_contents($path)
+						//por ello decodificamos lo codificado: base64_decode(base64_encode(file_get_contents($path))) para tener solo file_get_contents($path)
 
-					//al ya subir una imagen src cambia a "data:image/jpeg;base64,/sda....sdf/Z"
-					//lo que está luego de "base64," es base64_encode(file_get_contents($path))
-					//por lo tanto se se hace decode a eso se encuentra el file_get_contents($path) que se pasa a la api
+				if(!empty($imagen_content_fullAndEncoded)){
+					
+					//se trabaja sobre array, no sobre string
+					$imagen_content_fullAndEncoded_array =str_split($imagen_content_fullAndEncoded);
 
-					$image_encoded_string = $codigo;//array_pop($lo_de_src); 
-					$image_encoded_array =str_split($image_encoded_string);//se trabaja sobre array, no sobre string
-
-					//eliminamos "data:image/jpeg;base64," pues se usa lo siguiente
-					if(count($image_encoded_array)>1){//aseguramos que src ya tiene el string encoded
-						$contador=0;
-						foreach ($image_encoded_array as $char) {
-							if($char != ",")
-							$contador = $contador + 1;
-							else
-								break;
-						}
+					//eliminamos "data:image/jpeg;base64," (la pate full) pues se usa lo siguiente a eso			
+					$contador=0;
+					foreach ($imagen_content_fullAndEncoded_array as $char) {
+						if($char != ",")
 						$contador = $contador + 1;
-						for($i=1;$i<=$contador;$i++){
-							array_shift($image_encoded_array);
-						}
-
-						//decodificar el encoded pues $image_encoded = base64_encode(file_get_contents($path));
-						//el decodificado equivale a file_get_contents($path)
-						$image_encoded_string =implode($image_encoded_array);//el array listo se convierte a string, para el api
-						$image_de_path = base64_decode($image_encoded_string);//es el decode del encode
-
-						# instantiates a client
-						$imageAnnotator = new ImageAnnotatorClient();
-
-						# prepare the image to be annotated					
-						$image = $image_de_path;//$image = file_get_contents('cualquierimagen.jpg');
-
-						# performs label detection on the image file
-						$response = $imageAnnotator->labelDetection($image);
-						$labels = $response->getLabelAnnotations();
-
-						if ($labels){
-							echo("Labels:" . "<br>");
-							foreach ($labels as $label) {
-								echo("&emsp;".$label->getDescription() . "<br>");
-								echo("&emsp;".$label->getDescription() . "<br>");
-								echo("&emsp;".$label->getDescription() . "<br>");
-							}
-						}else
-							echo('No label found' . "<br>");	
-
+						else
+							break;
 					}
+					$contador = $contador + 1;
+					for($i=1;$i<=$contador;$i++){
+						array_shift($imagen_content_fullAndEncoded_array);
+					}//$imagen_content_fullAndEncoded_array ya no tiene la parte full
+					//el array listo se convierte a string
+					$imagen_content_encoded =implode($imagen_content_fullAndEncoded_array);
+
+					//decodificar el encoded					
+					$image_contents = base64_decode($imagen_content_encoded);//es el decode del encode					
+
+					# prepare the image to be annotated					
+					$image = $image_contents;//original fue: $image = file_get_contents('cualquierimagen.jpg');
+
+					# instantiates a client
+					$imageAnnotator = new ImageAnnotatorClient();
+
+					# performs label detection on the image file
+					$response = $imageAnnotator->labelDetection($image);
+					$labels = $response->getLabelAnnotations();
+
+					if ($labels){
+						echo("Labels:" . "<br>");
+						foreach ($labels as $label) {
+							echo("&emsp;".$label->getDescription() . "<br>");
+							echo("&emsp;".$label->getDescription() . "<br>");
+							echo("&emsp;".$label->getDescription() . "<br>");
+						}
+					}else
+						echo('No label found' . "<br>");	
+					
 				}
         ?>
