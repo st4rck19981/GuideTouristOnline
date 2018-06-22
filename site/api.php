@@ -303,7 +303,7 @@
       <div class="row">
         <div class="col-6">
           <div>
-            <h1 class="text-center">Google Maps <?php    echo $latitud; echo $longitud; ?>  </h1>
+            <h1 class="text-center">Google Maps</h1>
             <div id="mapa12345"></div>
           </div>          
         </div>
