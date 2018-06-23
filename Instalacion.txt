@@ -1,0 +1,29 @@
+Instalar composer ubicando el archivo php
+htdocs/php/php.exe
+
+en cmd escribir
+require google/cloud-vision
+ir a Disco Local C/Users y ve el nombre de tu PC
+en mi caso es HP
+
+Ir al api_work_php en linea 8
+Modificar la direccion: 
+			require 'C:\Users\HP\vendor\autoload.php';
+
+Si tienes XAMPP no es necesario instalar apache
+Seguir el README de el proyecto
+
+apache lo iniciamos manualmente:
+inicias powershell
+cd D:\Unsa\Programas\XAMPP
+cd apache
+cd bin
+$env:GOOGLE_APPLICATION_CREDENTIALS="D:\Unsa\Programas\XAMPP\htdocs\guidetourist\site - a modificar\authentication_api-php.json"
+.\httpd
+
+inicias mysql con xampp
+
+VIDEO PARA GRABAR
+-mostrar base de datos
+-mostrar codigo
+-ejecut
