@@ -1,7 +1,7 @@
 <?php
     include ("database//conexion.php");
     include ("database//funciones.php");
-    //NOMBRE LUGAR, kevin
+    //NOMBRE LUGAR temp
     $nombrelug="Catedral Basílica de Arequipa";
     $indice=indiceLugar($nombrelug);
     if ($indice==0)    $nombrelug="No se encuentra el sitio. Lo sentimos";
