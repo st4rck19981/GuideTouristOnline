@@ -1,3 +1,5 @@
+ESTE ES UN DOC INFORMAL, PARA MEJORAR ELLO TENEMOS UN MANUAL DE OPERACIONES
+
 Instalar composer ubicando el archivo php
 htdocs/php/php.exe
 
