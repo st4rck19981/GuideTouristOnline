@@ -6,7 +6,7 @@ INSERT INTO categoria(nombreCategoria) VALUES ("Ubicacion");
 INSERT INTO categoria(nombreCategoria) VALUES ("Latitud");
 INSERT INTO categoria(nombreCategoria) VALUES ("Longitud");
 
-INSERT INTO lugar (nombre) VALUES ("Plaza de Armas");
+INSERT INTO lugar (nombre) VALUES ("Catedral Basílica de Arequipa");
 
 INSERT INTO lugar_has_categoria(Lugar_idLugar,Categoria_idCategoria,contenidoCategoria,referenciaCategoria) VALUES (1,1,"La plaza Mayor o plaza de Armas de Arequipa, es uno de los principales espacios públicos de Arequipa y el lugar de fundación de la ciudad. Está ubicada en el Centro Histórico de Arequipa, a su alrededor esta La Catedral de Arequipa en el norte , los Portales de Arequipa al este, sur y oeste, La Iglesia La Compañía al sur-este, La Iglesia Nuestra señora de la Merced al sur-oeste y en el centro de la plaza una pileta de bronce.","https://es.wikipedia.org/wiki/Plaza_de_Armas_de_Arequipa");
 INSERT INTO lugar_has_categoria(Lugar_idLugar,Categoria_idCategoria,contenidoCategoria,referenciaCategoria) VALUES (1,2,"Cuando se fundó la ciudad el 15 de agosto de 1540 por García Manuel de Carvajal en el valle del río Chili como Villa de la Asunción de Nuestra Señora del Valle Hermoso de Arequipala la ciudad empezó a construirse con ella la plaza mayor.","https://es.wikipedia.org/wiki/Plaza_de_Armas_de_Arequipa");
