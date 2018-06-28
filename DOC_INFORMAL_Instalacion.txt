@@ -30,6 +30,8 @@ cd bin
 $env:GOOGLE_APPLICATION_CREDENTIALS="D:\Unsa\Programas\XAMPP\htdocs\guidetourist\site - a modificar\authentication_api-php.json"
 .\httpd
 
+composer require google/cloud-translate
+
 inicias mysql con xampp
 
 VIDEO PARA GRABAR
