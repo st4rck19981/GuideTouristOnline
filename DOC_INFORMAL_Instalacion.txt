@@ -1,10 +1,17 @@
 ESTE ES UN DOC INFORMAL, PARA MEJORAR ELLO TENEMOS UN MANUAL DE OPERACIONES
 
-Instalar composer ubicando el archivo php
+WINDOWS
+Instalar composer ubicando el archivo php(a veces te da la direccion automaticamente)
 htdocs/php/php.exe
 
-en cmd escribir
-require google/cloud-vision
+UBUNTU
+sudo apt-get install php
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+
+en cmd modo administrador escribir
+composer require google/cloud-vision
 ir a Disco Local C/Users y ve el nombre de tu PC
 en mi caso es HP
 
