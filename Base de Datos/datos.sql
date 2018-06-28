@@ -71,7 +71,7 @@ INSERT INTO lugar_has_categoria (Lugar_idLugar,Categoria_idCategoria,contenidoCa
 
 
 
-INSERT INTO lugar (nombre) VALUES ("Sacsayhuaman");
+INSERT INTO lugar (nombre) VALUES ("Saksaywaman");
 INSERT INTO lugar_has_categoria (Lugar_idLugar,Categoria_idCategoria,contenidoCategoria,referenciaCategoria) VALUES (8,1,"Sacsayhuamán (en quechua Saqsaywaman, de saqsay, lugar de saciarse, y waman, halcón, es decir, Lugar donde se sacia el halcón) es una fortaleza ceremonial inca ubicada dos kilómetros al norte de la ciudad del Cuzco. Se comenzó a construir durante el gobierno de Pachacútec, en el siglo XV; sin embargo, fue Huayna Cápac quien la culminó en el siglo XVI.","https://es.wikipedia.org/wiki/Sacsayhuam%C3%A1n");
 INSERT INTO lugar_has_categoria (Lugar_idLugar,Categoria_idCategoria,contenidoCategoria,referenciaCategoria) VALUES (8,2,"La zona donde se encuentra esta construcción corresponde a la cabeza del animal sagrado, y una de las traducciones que tiene esta palabra es, precisamente, cabeza de puma. Pachacútec Inca Yupanqui, el noveno Inca, rediseñó la ciudad y le dio forma de puma acostado (el puma es el guardián de las cosas terrenas)","https://es.wikipedia.org/wiki/Sacsayhuam%C3%A1n#Arquitectura");
 INSERT INTO lugar_has_categoria (Lugar_idLugar,Categoria_idCategoria,contenidoCategoria,referenciaCategoria) VALUES (8,3,"Cuzco, Peru","https://es.wikipedia.org/wiki/Sacsayhuam%C3%A1n#Arquitectura");
